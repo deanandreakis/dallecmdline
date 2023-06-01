@@ -1,4 +1,5 @@
 #dallecmdline
+
 Interact with OpenAI Dall-E from the command line
 
 Instructions for Use
