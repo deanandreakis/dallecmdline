@@ -1,24 +1,8 @@
 use reqwest::{Client, header::HeaderMap};
-use serde::{Serialize, Deserialize};
 use std::env;
-use std::io::{self, Write, stdout};
-
-#[derive(Debug, Serialize)]
-struct ImageRequest {
-    prompt: String,
-}
-
-#[derive(Debug, Deserialize)]
-pub struct ImageResponse {
-    pub created: i64,
-    pub data: Vec<Image>,
-}
-
-#[derive(Debug, Deserialize)]
-pub struct Image {
-    #[serde(default)]
-    pub url: String,
-}
+use std::io::{self, stdout, Write};
+use crate::types::types::{ImageResponse, ImageRequest};
+pub mod types;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
